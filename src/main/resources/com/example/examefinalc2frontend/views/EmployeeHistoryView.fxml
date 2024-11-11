@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.examefinalc2frontend.Controller.EmployeeHistoryController"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox spacing="20" >
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- Header Section -->
+        <HBox spacing="20" styleClass="header-section">
+            <ImageView fx:id="profileImage" fitHeight="64" fitWidth="64" preserveRatio="true"/>
+
+            <VBox spacing="5">
+                <Label fx:id="employeeName" styleClass="employee-name" text="Juan Pérez"/>
+                <Label fx:id="employeePosition" styleClass="employee-position" text="Senior Marketing Analyst"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+            <ComboBox fx:id="yearSelector" styleClass="year-selector"/>
+        </HBox>
+
+        <!-- Pay Slips Section -->
+        <VBox spacing="10" styleClass="section">
+            <Label text="Pay Slips" styleClass="section-title"/>
+            <Label text="Current year pay slip history" styleClass="section-subtitle"/>
+
+            <TableView fx:id="paySlipsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="paySlipDateColumn" text="Date"/>
+                    <TableColumn fx:id="grossSalaryColumn" text="Gross Salary"/>
+                    <TableColumn fx:id="netSalaryColumn" text="Net Salary"/>
+                    <TableColumn fx:id="actionColumn" text="Action"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Career Progression Section -->
+        <VBox spacing="10" styleClass="section">
+            <Label text="Career Progression" styleClass="section-title"/>
+            <Label text="Your position and salary evolution in the company" styleClass="section-subtitle"/>
+
+            <LineChart fx:id="salaryChart" prefHeight="300">
+                <xAxis>
+                    <NumberAxis label="Time Period"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Salary"/>
+                </yAxis>
+            </LineChart>
+
+            <TableView fx:id="careerTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="careerDateColumn" text="Date"/>
+                    <TableColumn fx:id="positionColumn" text="Position"/>
+                    <TableColumn fx:id="salaryColumn" text="Salary"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </VBox>
+</AnchorPane>

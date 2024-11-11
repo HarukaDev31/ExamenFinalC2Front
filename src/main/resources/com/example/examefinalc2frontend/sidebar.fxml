@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<ScrollPane
+        fx:controller="com.example.examefinalc2frontend.Controller.SidebarController"
+
+        xmlns:fx="http://javafx.com/fxml" fx:id="sidebar" styleClass="sidebar" fitToWidth="true" fitToHeight="true">
+
+    <VBox
+            xmlns:fx="http://javafx.com/fxml"
+            spacing="10" styleClass="sidebar"
+    >
+
+        <!-- Gestión de Empleados -->
+        <TitledPane text="Gestión de Empleados" expanded="false">
+            <VBox spacing="5" style="-fx-padding: 10;">
+                <Button text="Lista de Empleados"
+                        fx:id="employeeListButton"
+                        onAction="#handleEmployeeList" />
+                <Button text="Registrar Empleado"
+                        fx:id="registerEmployeeButton"
+                        onAction="#handleRegisterEmployee" />
+                <Button text="Historial de Salarios"
+                        fx:id="salaryHistoryButton"
+                        onAction="#handleSalaryHistory" />
+                <Button text="Historial de Cargos"
+                        fx:id="positionHistoryButton"
+                        onAction="#handlePositionHistory" />
+                <Button text="Horas Trabajadas"
+                        fx:id="workHoursButton"
+                        onAction="#handleWorkHours" />
+            </VBox>
+        </TitledPane>
+
+        <!-- Gestión de Salarios y Pagos -->
+        <TitledPane text="Gestión de Salarios y Pagos" expanded="false">
+            <VBox spacing="5" style="-fx-padding: 10;">
+                <Button text="Pagos Mensuales"
+                        fx:id="monthlyPaymentsButton"
+                        onAction="#handleMonthlyPayments" />
+                <Button
+                        fx:id="salaryVariablesButton"
+                        text="Configuracion" onAction="#handleSalaryVariables" />
+            </VBox>
+        </TitledPane>
+
+        <!-- Dashboard de Gastos -->
+        <TitledPane text="Dashboard de Gastos" expanded="false">
+            <VBox spacing="5" style="-fx-padding: 10;">
+                <Button text="Gráficos y Estadísticas"
+                        fx:id="chartsStatisticsButton"
+                        onAction="#handleChartsStatistics" />
+
+            </VBox>
+        </TitledPane>
+
+        <!-- Perfil del Empleado -->
+        <TitledPane text="Perfil del Empleado" expanded="false">
+            <VBox spacing="5" style="-fx-padding: 10;">
+                <Button text="Datos Personales"
+                        fx:id="personalDataButton"
+                        onAction="#handlePersonalData" />
+                <Button text="Registro de Asistencia"
+                        fx:id="attendanceButton"
+                        onAction="#handleAttendance" />
+                <Button text="Historial de Pagos"
+                        fx:id="employeeHistoryButton"
+                        onAction="#handleEmployeeHistory" />
+            </VBox>
+        </TitledPane>
+
+    </VBox>
+</ScrollPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.examefinalc2frontend.Controller.EmployeeController">
+        <!-- Contenedor vertical para apilar los elementos -->
+        <VBox spacing="10" >
+
+            <!-- Sección de botones (IMPORTAR Y EXPORTAR) -->
+            <HBox spacing="10">
+                <Button text="Importar" onAction="#importEmployees"/>
+                <Button text="Exportar" onAction="#exportEmployees"/>
+            </HBox>
+
+            <!-- Sección de búsqueda -->
+            <HBox spacing="10">
+                <TextField fx:id="searchField" promptText="Buscar empleado"/>
+                <Button text="Buscar" onAction="#searchEmployee"/>
+            </HBox>
+
+            <!-- Tabla de empleados -->
+            <TableView fx:id="employeeTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
+                <columns>
+                    <TableColumn text="ID" fx:id="idColumn"/>
+                    <TableColumn text="Nombre" fx:id="nameColumn"/>
+                    <TableColumn text="Apellido" fx:id="lastNameColumn"/>
+                    <TableColumn text="Correo" fx:id="emailColumn"/>
+                    <TableColumn text="Teléfono" fx:id="phoneColumn"/>
+                    <TableColumn text="Dirección" fx:id="addressColumn"/>
+                    <TableColumn text="Fecha de Nacimiento" fx:id="birthDateColumn"/>
+                    <TableColumn text="Fecha de Ingreso" fx:id="hireDateColumn"/>
+                    <TableColumn text="Salario" fx:id="salaryColumn"/>
+                    <TableColumn text="Cargo" fx:id="positionColumn"/>
+                </columns>
+
+            </TableView>
+
+        </VBox>
+</AnchorPane>

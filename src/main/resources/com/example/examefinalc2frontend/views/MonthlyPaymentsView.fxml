@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.examefinalc2frontend.Controller.MonthlyPaymentsController"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox spacing="10" >
+
+        <HBox spacing="10">
+            <Button text="Exportar"/>
+        </HBox>
+
+        <!-- Sección de búsqueda -->
+        <HBox spacing="10">
+            <TextField fx:id="searchField" promptText="Buscar Salario"/>
+            <Button text="Buscar" />
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Mes:"/>
+            <ComboBox fx:id="monthComboBox" prefWidth="100"/>
+            <Label text="Año:"/>
+            <ComboBox fx:id="yearComboBox" prefWidth="100"/>
+        </HBox>
+        <TableView fx:id="employeeTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
+            <columns>
+                <TableColumn text="Codigo" fx:id="codigoColumn"/>
+                <TableColumn text="Empleado" fx:id="employeeColumn"/>
+                <TableColumn text="Cargo" fx:id="positionColumn"/>
+                <TableColumn text="Salario Bruto" fx:id="salaryColumn"/>
+                <TableColumn text="Ingresos" fx:id="deductionsColumn"/>
+                <TableColumn text="Deducciones" fx:id="incomesColumn"/>
+                <TableColumn text="Salario Neto" fx:id="netSalaryColumn"/>
+                <TableColumn text="Fecha de Boleta" fx:id="dateColumn"/>
+                <TableColumn text="Fecha de Creaion" fx:id="statusColumn"/>
+                <TableColumn text="Acciones" fx:id="actionsColumn"/>
+
+            </columns>
+
+
+        </TableView>
+    </VBox>
+</AnchorPane>

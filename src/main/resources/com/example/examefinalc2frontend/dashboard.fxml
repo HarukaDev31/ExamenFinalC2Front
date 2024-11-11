@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      spacing="10" padding="20">
+
+    <Label text="Dashboard" style="-fx-font-size: 24px;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <padding>
+            <Insets top="20" />
+        </padding>
+
+        <!-- Contenido del dashboard -->
+        <Label text="¡Bienvenido al Sistema!"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="0"/>
+    </GridPane>
+</VBox>

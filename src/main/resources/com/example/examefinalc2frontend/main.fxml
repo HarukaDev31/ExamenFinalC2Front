@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.ScrollPane?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.examefinalc2frontend.Controller.MainController">
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <AnchorPane fx:id="contentArea"/>
+        </ScrollPane>
+    </center>
+</BorderPane>

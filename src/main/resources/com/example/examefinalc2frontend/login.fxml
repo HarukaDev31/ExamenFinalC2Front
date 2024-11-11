@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      styleClass="login-container"
+      stylesheets="@styles.css">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Text text="Inicio de Sesión"
+          styleClass="login-title"
+          style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <GridPane vgap="10" hgap="10" alignment="CENTER">
+        <Label text="Usuario:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="0"/>
+        <TextField fx:id="usernameField"
+                   promptText="Ingrese su usuario"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="0"/>
+
+        <Label text="Contraseña:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="1"/>
+        <PasswordField fx:id="passwordField"
+                       promptText="Ingrese su contraseña"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Iniciar Sesión"
+                styleClass="login-button"/>
+        <Button text="Cancelar"
+                styleClass="cancel-button"/>
+    </HBox>
+
+    <Label fx:id="messageLabel"
+           styleClass="message-label"/>
+</VBox>

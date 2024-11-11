@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Pos?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.examefinalc2frontend.Controller.EmployeeFormController">
+
+    <VBox spacing="10"
+    style="-fx-padding: 20px; -fx-border-color: #0078d4; -fx-border-width: 1px; -fx-border-radius: 5px;"
+    >
+        <!-- Título del Formulario -->
+        <Text text="Registrar Empleado" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <!-- Campo ID -->
+        <HBox spacing="10">
+            <Label text="ID:"/>
+            <TextField fx:id="idField" promptText="ID del Empleado" editable="false"/>
+        </HBox>
+
+        <!-- Campo Nombre -->
+        <HBox spacing="10">
+            <Label text="Nombre:"/>
+            <TextField fx:id="nameField" promptText="Nombre del Empleado"/>
+        </HBox>
+
+        <!-- Campo Apellido -->
+        <HBox spacing="10">
+            <Label text="Apellido:"/>
+            <TextField fx:id="lastNameField" promptText="Apellido del Empleado"/>
+        </HBox>
+
+        <!-- Campo Correo -->
+        <HBox spacing="10">
+            <Label text="Correo:"/>
+            <TextField fx:id="emailField" promptText="Correo del Empleado"/>
+        </HBox>
+
+        <!-- Campo Teléfono -->
+        <HBox spacing="10">
+            <Label text="Teléfono:"/>
+            <TextField fx:id="phoneField" promptText="Teléfono del Empleado"/>
+        </HBox>
+
+        <!-- Campo Dirección -->
+        <HBox spacing="10">
+            <Label text="Dirección:"/>
+            <TextField fx:id="addressField" promptText="Dirección del Empleado"/>
+        </HBox>
+
+        <!-- Campo Fecha de Nacimiento -->
+        <HBox spacing="10">
+            <Label text="Fecha de Nacimiento:"/>
+            <DatePicker fx:id="birthDateField" promptText="Fecha de Nacimiento"/>
+        </HBox>
+
+        <!-- Campo Fecha de Ingreso -->
+        <HBox spacing="10">
+            <Label text="Fecha de Ingreso:"/>
+            <DatePicker fx:id="hireDateField" promptText="Fecha de Ingreso"/>
+        </HBox>
+
+        <!-- Campo Salario -->
+        <HBox spacing="10">
+            <Label text="Salario:"/>
+            <TextField fx:id="salaryField" promptText="Salario del Empleado"/>
+        </HBox>
+
+        <!-- Campo Cargo -->
+        <HBox spacing="10">
+            <Label text="Cargo:"/>
+            <TextField fx:id="positionField" promptText="Cargo del Empleado"/>
+        </HBox>
+
+        <!-- Botones para guardar o cancelar -->
+        <HBox spacing="10" alignment="center" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+            <Button text="Guardar" onAction="#saveEmployee"/>
+            <Button text="Cancelar" onAction="#cancelForm"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

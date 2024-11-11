@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.image.ImageView?>
+<AnchorPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.examefinalc2frontend.Controller.AttendanceController"
+>
+    <VBox
+          spacing="20"
+          style="-fx-background-color: white; -fx-padding: 20;">
+
+        <!-- Sección Superior - Marcar Asistencia -->
+        <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-background-radius: 5;">
+            <HBox spacing="10">
+                <Label text="Marcar Asistencia" style="-fx-font-weight: bold; -fx-font-size: 16;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="currentTimeLabel" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <!--<ImageView fitHeight="50" fitWidth="50">
+                    <image>
+                        <javafx.scene.image.Image url="@/images/user-placeholder.png"/>
+                    </image>
+                </ImageView>-->
+
+                <VBox>
+                    <Label fx:id="nameLabel" text="Juan Pérez" style="-fx-font-weight: bold;"/>
+                    <Label text="Analista de Sistemas" style="-fx-text-fill: #6c757d;"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="entradaButton" text="Entrada"
+                        onAction="#handleEntrada"
+                        style="-fx-background-color: #212529; -fx-text-fill: white;"/>
+                <Button fx:id="salidaButton" text="Salida"
+                        onAction="#handleSalida"
+                        style="-fx-background-color: transparent; -fx-border-color: #dee2e6;"/>
+            </HBox>
+        </VBox>
+
+        <!-- Sección Media - Historial de Asistencia -->
+        <VBox spacing="10">
+            <Label text="Historial de Asistencia" style="-fx-font-weight: bold;"/>
+
+            <TableView fx:id="attendanceTable">
+                <columns>
+                    <TableColumn fx:id="dateColumn" text="Fecha" prefWidth="150"/>
+                    <TableColumn fx:id="entryColumn" text="Entrada" prefWidth="100"/>
+                    <TableColumn fx:id="exitColumn" text="Salida" prefWidth="100"/>
+                    <TableColumn fx:id="totalHoursColumn" text="Total Horas" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Sección Inferior - Horario de Trabajo -->
+        <VBox spacing="5" style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Horario de Trabajo" style="-fx-font-weight: bold;"/>
+            <HBox spacing="20" alignment="CENTER">
+                <HBox alignment="CENTER">
+                    <Label text="Entrada: " style="-fx-text-fill: #198754;"/>
+                    <Label text="9:00 AM" style="-fx-text-fill: #198754;"/>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <Label text="Salida: " style="-fx-text-fill: #dc3545;"/>
+                    <Label text="5:00 PM" style="-fx-text-fill: #dc3545;"/>
+                </HBox>
+            </HBox>
+            <Label text="Recuerda que tienes un margen de 10 minutos para la entrada y salida. Si llegas después de las 9:10 AM o sales antes de las 4:50 PM, se considerará como tardanza o salida anticipada."
+                   style="-fx-text-fill: #6c757d; -fx-font-size: 12;"
+                   wrapText="true"/>
+        </VBox>
+    </VBox>
+</AnchorPane>

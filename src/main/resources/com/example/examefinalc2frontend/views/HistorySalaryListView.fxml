@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.examefinalc2frontend.Controller.SalaryHistoryListController">
+    <!-- Contenedor vertical para apilar los elementos -->
+    <VBox spacing="10" >
+
+        <!-- Sección de botones (IMPORTAR Y EXPORTAR) -->
+        <HBox spacing="10">
+            <Button text="Exportar"/>
+        </HBox>
+
+        <!-- Sección de búsqueda -->
+        <HBox spacing="10">
+            <TextField fx:id="searchField" promptText="Buscar Variable"/>
+            <Button text="Buscar" />
+        </HBox>
+
+        <!-- Tabla de empleados -->
+        <TableView fx:id="variablesTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
+            <columns>
+                <TableColumn text="Nombre"/>
+                <TableColumn text="Valor"/>
+                <TableColumn text="Estado"/>
+                <TableColumn text="Fecha de Creacion"/>
+                <TableColumn text="Fecha de Modificacion"/>
+                <TableColumn text="Acciones"/>
+            </columns>
+
+
+        </TableView>
+
+    </VBox>
+</AnchorPane>

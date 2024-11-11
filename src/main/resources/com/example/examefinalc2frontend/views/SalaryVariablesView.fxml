@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.examefinalc2frontend.Controller.WorkHoursController"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox spacing="10" >
+
+        <!-- Sección de botones (IMPORTAR Y EXPORTAR) -->
+        <HBox spacing="10">
+            <Button text="Exportar"/>
+            <Button text="Importar"/>
+        </HBox>
+
+        <!-- Sección de búsqueda -->
+        <HBox spacing="10">
+            <TextField fx:id="searchField" promptText="Buscar Variable"/>
+            <Button text="Buscar" />
+        </HBox>
+        <TableView fx:id="workHoursTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
+            <columns>
+                <TableColumn text="Empleado" fx:id="employeeColumn"/>
+                <TableColumn text="Horas Trabajadas" fx:id="workHoursColumn"/>
+                <TableColumn text="Hora de Entrada" fx:id="entryTimeColumn"/>
+                <TableColumn text="Hora de Salida" fx:id="exitTimeColumn"/>
+                <TableColumn text="Fecha" fx:id="dateColumn"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+</AnchorPane>

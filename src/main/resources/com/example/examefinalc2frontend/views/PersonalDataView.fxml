@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.examefinalc2frontend.Controller.PersonalDataController"            prefHeight="400.0" prefWidth="600.0">
+    <BorderPane>
+        <center>
+            <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                <HBox alignment="CENTER" spacing="10">
+                    <Label text="👤" styleClass="profile-icon"/>
+                    <VBox>
+                        <Label text="María García" styleClass="name-label"/>
+                        <Label text="Analista de Marketing - Marketing" styleClass="position-label"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Información Personal y Laboral -->
+                <HBox spacing="50" alignment="CENTER">
+                    <!-- Información Personal -->
+                    <VBox spacing="10" prefWidth="300" styleClass="info-box">
+                        <Label text="Información Personal" styleClass="section-title"/>
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+                            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label text="maria.garcia@empresa.com" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                            <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label text="+51 987 654 321" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                            <Label text="Dirección:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <Label text="Av. Arequipa 123, Lima" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                            <Label text="Cargo:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <Label text="Analista de Marketing" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                            <Label text="Salario:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                            <Label text="S/ 5,000" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                            <Label text="Fecha de Ingreso:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                            <Label text="15/03/2020" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Información Laboral -->
+                    <VBox spacing="10" prefWidth="300" styleClass="info-box">
+                        <Label text="Información Laboral" styleClass="section-title"/>
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+                            <Label text="ID de Empleado:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label text="EMP001" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                            <Label text="Departamento:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label text="Marketing" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                            <Label text="Horas Semanales:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <Label text="40" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                            <Label text="Tipo de Contrato:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <Label text="Indefinido" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                            <Label text="AFP:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                            <Label text="AFP Integra" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                            <Label text="Vacaciones Disponibles:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                            <Label text="15 días" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        </GridPane>
+                    </VBox>
+                </HBox>
+
+                <!-- Información Bancaria -->
+                <VBox spacing="10" prefWidth="650" styleClass="bank-info-box">
+                    <Label text="Información Bancaria" styleClass="section-title"/>
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+                        <Label text="Banco:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Banco de Crédito del Perú" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <Label text="Cuenta Bancaria:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="191-87654321-0-01" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </GridPane>
+                </VBox>
+
+                <!-- Botones de acción -->
+                <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+                    <Button text="Editar Perfil" styleClass="edit-button"/>
+                    <Button text="Solicitar Actualización" styleClass="request-button"/>
+                </HBox>
+            </VBox>
+        </center>
+    </BorderPane>
+</AnchorPane>
