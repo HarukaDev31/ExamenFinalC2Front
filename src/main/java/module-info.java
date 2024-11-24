@@ -9,6 +9,8 @@ module com.example.examefinalc2frontend {
     requires java.net.http;
     requires com.fasterxml.jackson.databind;
     requires java.desktop;
+    requires static lombok;
+    requires java.prefs;
 
     opens com.example.examefinalc2frontend to javafx.fxml;
     opens com.example.examefinalc2frontend.Controller to javafx.fxml;

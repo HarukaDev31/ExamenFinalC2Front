@@ -3,49 +3,191 @@ package com.example.examefinalc2frontend.Controller;
 import com.example.examefinalc2frontend.Requests.LoginRequest;
 import com.example.examefinalc2frontend.Responses.LoginResponse;
 import com.example.examefinalc2frontend.Services.AuthService;
+import com.example.examefinalc2frontend.Utils.SessionManager;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 
 public class LoginController {
-    private AuthService authService = new AuthService();
-
     @FXML
     private TextField usernameField;
+
     @FXML
     private PasswordField passwordField;
-    @FXML
-    private Button loginButton;
+
     @FXML
     private Label messageLabel;
 
+    @FXML
+    private Button loginButton;
+
+    private AuthService authService;
+
+    public LoginController() {
+    }
+
+    @FXML
     public void login() {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-        if (username.isEmpty() || password.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Empty fields");
-            alert.setContentText("Please fill in all fields");
-            alert.showAndWait();
-
-
+        clearMessage();
+        if (!validateFields()) {
             return;
         }
-        LoginRequest loginRequest = new LoginRequest(username, password);
+
         try {
+            setLoadingState(true);
+
+            LoginRequest loginRequest = new LoginRequest(
+                    usernameField.getText().trim(),
+                    passwordField.getText()
+            );
+
             LoginResponse response = authService.login(loginRequest);
-            if (response.getToken() != null) {
-                messageLabel.setText("Login successful");
-            } else {
-                messageLabel.setText(response.getMessage());
-            }
+            handleLoginResponse(response);
+
         } catch (Exception e) {
+            handleError("An unexpected error occurred: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            setLoadingState(false);
         }
     }
-    @FXML
+
+    private boolean validateFields() {
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            showError("Validation Error", "Empty fields",
+                    "Please fill in all fields");
+            return false;
+        }
+
+        if (username.length() < 3) {
+            showError("Validation Error", "Invalid username",
+                    "Username must be at least 3 characters long");
+            return false;
+        }
+
+        if (password.length() < 6) {
+            showError("Validation Error", "Invalid password",
+                    "Password must be at least 6 characters long");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void handleLoginResponse(LoginResponse response) {
+        if (response.getError() != null) {
+            showMessage(response.getError(), "error");
+            return;
+        }
+
+        if (response.getToken() != null) {
+            handleSuccessfulLogin(response);
+        } else {
+            showMessage(response.getMessage() != null ?
+                    response.getMessage() : "Unknown error occurred", "error");
+        }
+    }
+
+    private void handleError(String errorMessage) {
+        Platform.runLater(() -> {
+            showMessage(errorMessage, "error");
+            // También podrías mostrar una alerta más detallada si lo prefieres
+            showError("Error", "Login Error", errorMessage);
+
+            // Limpiar el campo de contraseña por seguridad
+            passwordField.clear();
+
+            // Devolver el foco al campo de usuario si está vacío, si no al de contraseña
+            if (usernameField.getText().trim().isEmpty()) {
+                usernameField.requestFocus();
+            } else {
+                passwordField.requestFocus();
+            }
+        });
+    }
+
+    private void handleSuccessfulLogin(LoginResponse response) {
+        showMessage("Login successful!", "success");
+
+        saveUserSession(response);
+
+        Platform.runLater(() -> {
+            try {
+                navigateToMainScreen();
+            } catch (Exception e) {
+                showError("Navigation Error", "Could not load main screen",
+                        e.getMessage());
+            }
+        });
+    }
+
+    private void saveUserSession(LoginResponse response) {
+        SessionManager.getInstance().setToken(response.getToken());
+        SessionManager.getInstance().setUsername(response.getUsername());
+    }
+
+    private void navigateToMainScreen() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainScreen.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) loginButton.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+    private void showError(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private void showMessage(String message, String type) {
+        messageLabel.setText(message);
+        messageLabel.getStyleClass().clear();
+        messageLabel.getStyleClass().add("message-" + type);
+    }
+
+    private void clearMessage() {
+        messageLabel.setText("");
+        messageLabel.getStyleClass().clear();
+    }
+
+    private void setLoadingState(boolean loading) {
+        loginButton.setDisable(loading);
+        usernameField.setDisable(loading);
+        passwordField.setDisable(loading);
+
+        if (loading) {
+            loginButton.setText("Logging in...");
+        } else {
+            loginButton.setText("Login");
+        }
+    }
+
     public void initialize() {
-        loginButton.setOnAction(event -> login());
+        this.authService = new AuthService(); // O obtenerlo de donde corresponda
+
+        SessionManager.getInstance().loadSession();
+        if (SessionManager.getInstance().hasActiveSession()) {
+            try {
+                navigateToMainScreen();
+            } catch (IOException e) {
+                showError("Navigation Error", "Could not load main screen",
+                        e.getMessage());
+            }
+        }else{
+            //add event listener to login button
+            loginButton.setOnAction(event -> login());
+
+        }
     }
 }

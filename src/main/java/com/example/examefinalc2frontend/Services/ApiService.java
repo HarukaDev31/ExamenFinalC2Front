@@ -1,8 +1,12 @@
 package com.example.examefinalc2frontend.Services;
 
+import com.example.examefinalc2frontend.Exception.ApiException;
+import com.example.examefinalc2frontend.Exception.NotFoundException;
+import com.example.examefinalc2frontend.Exception.UnauthorizedException;
+import com.example.examefinalc2frontend.Exception.BadRequestException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -48,14 +52,23 @@ public class ApiService {
                     request,
                     HttpResponse.BodyHandlers.ofString()
             );
+            if(response.statusCode()==400){
+                throw new BadRequestException("Bad Request");
+            }else if(response.statusCode()==404){
+                throw new NotFoundException("Not Found");
+            }else if(response.statusCode()==401){
+                throw new UnauthorizedException("Unauthorized");
+            }else if(response.statusCode()==403){
+                throw new BadRequestException("Forbidden");
 
-
-
-
-
-            return objectMapper.readValue(response.body(), responseType);
+            }
+            try{
+                return objectMapper.readValue(response.body(), responseType);
+            }catch (JsonProcessingException e){
+                throw new ApiException("Api Error");
+            }
         } catch (Exception e) {
-            System.err.println("Error en POST request: " + e.getMessage());
+
             throw e;
 
         }

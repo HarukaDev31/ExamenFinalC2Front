@@ -10,11 +10,10 @@ public class AuthService extends ApiService{
     public LoginResponse login(LoginRequest loginRequest) throws Exception {
         try{
             LoginResponse response=post("auth/authenticate", loginRequest, LoginResponse.class);
-            System.out.println(response);
+            System.out.println(response+"response");
             return response;
-        }catch (HttpClientErrorException  e){
-            System.out.printf("Error en login: %s", e.getMessage());
-            throw e;
+        }catch (Exception  e){
+            return LoginResponse.builder().success(false).error(e.getMessage()).build();
         }
     }
 
