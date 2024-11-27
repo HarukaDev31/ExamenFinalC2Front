@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -136,10 +138,28 @@ public class LoginController {
     }
 
     private void navigateToMainScreen() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainScreen.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) loginButton.getScene().getWindow();
-        stage.setScene(new Scene(root));
+
+            String fullPath = "/com/example/examefinalc2frontend";
+
+            FXMLLoader sidebarLoader = new FXMLLoader(getClass().getResource(fullPath + "/sidebar.fxml"));
+            Parent sidebarRoot = sidebarLoader.load();
+            SidebarController sidebarController = sidebarLoader.getController();
+
+            // Cargar la vista principal
+            FXMLLoader mainLoader = new FXMLLoader(getClass().getResource(fullPath + "/main.fxml"));
+            BorderPane root = mainLoader.load();
+            MainController mainController = mainLoader.getController();
+
+            // Establecer el sidebar en el BorderPane
+            root.setLeft(sidebarRoot);
+
+            // Conectar los controladores
+            sidebarController.setMainController(mainController);
+
+            Scene scene = new Scene(root, 1200, 800, Color.web("#2d2d2d"));
+            scene.getStylesheets().add(getClass().getResource(fullPath + "/styles.css").toExternalForm());
+            Stage stage = (Stage) loginButton.getScene().getWindow();
+            stage.setScene(scene);
     }
 
     private void showError(String title, String header, String content) {
