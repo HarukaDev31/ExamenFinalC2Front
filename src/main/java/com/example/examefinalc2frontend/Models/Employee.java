@@ -1,44 +1,80 @@
 package com.example.examefinalc2frontend.Models;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Date;
 
 public class Employee {
-    private final SimpleIntegerProperty id;
-    private final SimpleStringProperty name;
-    private final SimpleStringProperty lastName;
-    private final SimpleStringProperty email;
-    private final SimpleStringProperty phone;
-    private final SimpleStringProperty address;
-    private final SimpleStringProperty birthDate;
-    private final SimpleStringProperty hireDate;
-    private final SimpleDoubleProperty salary;
-    private final SimpleStringProperty position;
+    // Getters y setters
+    @Setter
+    @Getter
+    private int id;
+    @Setter
+    @Getter
+    private String firstName;
+    @Setter
+    @Getter
+    private String lastName;
+    @Setter
+    @Getter
+    private boolean active;
+    @Setter
+    @Getter
+    private boolean gender;
+    @Setter
+    @Getter
+    private Date hireDate;
+    @Setter
+    @Getter
+    private Date terminationDate;
+    @Setter
+    @Getter
+    private String phoneNumber;
+    @Setter
+    @Getter
+    private String address;
+    @Setter
+    @Getter
+    private String documentNumber;
+    @Getter
+    private int documentTypeId;
+    @Getter
+    @Setter
+    private Date createdAt;
+    @Setter
+    private User user;
+    private Area area;
+    private int pensionId;
+    private Boolean hasLoan;
 
-    public Employee(int id, String name, String lastName, String email, String phone, String address,
-                    String birthDate, String hireDate, double salary, String position) {
-        this.id = new SimpleIntegerProperty(id);
-        this.name = new SimpleStringProperty(name);
-        this.lastName = new SimpleStringProperty(lastName);
-        this.email = new SimpleStringProperty(email);
-        this.phone = new SimpleStringProperty(phone);
-        this.address = new SimpleStringProperty(address);
-        this.birthDate = new SimpleStringProperty(birthDate);
-        this.hireDate = new SimpleStringProperty(hireDate);
-        this.salary = new SimpleDoubleProperty(salary);
-        this.position = new SimpleStringProperty(position);
+    public User getUser() { return user; }
+
+    public void setDocumentTypeId(int documentTypeId) {
+        this.documentTypeId = documentTypeId;
     }
 
-    // Getters para las propiedades, necesarios para que funcionen las columnas de la tabla
-    public SimpleIntegerProperty idProperty() { return id; }
-    public SimpleStringProperty nameProperty() { return name; }
-    public SimpleStringProperty lastNameProperty() { return lastName; }
-    public SimpleStringProperty emailProperty() { return email; }
-    public SimpleStringProperty phoneProperty() { return phone; }
-    public SimpleStringProperty addressProperty() { return address; }
-    public SimpleStringProperty birthDateProperty() { return birthDate; }
-    public SimpleStringProperty hireDateProperty() { return hireDate; }
-    public SimpleDoubleProperty salaryProperty() { return salary; }
-    public SimpleStringProperty positionProperty() { return position; }
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public Boolean getHasLoan() {
+        return hasLoan;
+    }
+
+    public void setHasLoan(Boolean hasLoan) {
+        this.hasLoan = hasLoan;
+    }
+
+    public int getPensionId() {
+        return pensionId;
+    }
+
+    public void setPensionId(int pensionId) {
+        this.pensionId = pensionId;
+    }
 }

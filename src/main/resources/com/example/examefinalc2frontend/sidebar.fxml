@@ -22,18 +22,11 @@
                 <Button text="Lista de Empleados"
                         fx:id="employeeListButton"
                         onAction="#handleEmployeeList" />
-                <Button text="Registrar Empleado"
-                        fx:id="registerEmployeeButton"
-                        onAction="#handleRegisterEmployee" />
-                <Button text="Historial de Salarios"
+
+                <Button text="Historial de Salarios Y Cargos"
                         fx:id="salaryHistoryButton"
                         onAction="#handleSalaryHistory" />
-                <Button text="Historial de Cargos"
-                        fx:id="positionHistoryButton"
-                        onAction="#handlePositionHistory" />
-                <Button text="Horas Trabajadas"
-                        fx:id="workHoursButton"
-                        onAction="#handleWorkHours" />
+
             </VBox>
         </TitledPane>
 
@@ -50,29 +43,6 @@
         </TitledPane>
 
         <!-- Dashboard de Gastos -->
-        <TitledPane text="Dashboard de Gastos" expanded="false">
-            <VBox spacing="5" style="-fx-padding: 10;">
-                <Button text="Gráficos y Estadísticas"
-                        fx:id="chartsStatisticsButton"
-                        onAction="#handleChartsStatistics" />
-
-            </VBox>
-        </TitledPane>
-
-        <!-- Perfil del Empleado -->
-        <TitledPane text="Perfil del Empleado" expanded="false">
-            <VBox spacing="5" style="-fx-padding: 10;">
-                <Button text="Datos Personales"
-                        fx:id="personalDataButton"
-                        onAction="#handlePersonalData" />
-                <Button text="Registro de Asistencia"
-                        fx:id="attendanceButton"
-                        onAction="#handleAttendance" />
-                <Button text="Historial de Pagos"
-                        fx:id="employeeHistoryButton"
-                        onAction="#handleEmployeeHistory" />
-            </VBox>
-        </TitledPane>
 
     </VBox>
 </ScrollPane>

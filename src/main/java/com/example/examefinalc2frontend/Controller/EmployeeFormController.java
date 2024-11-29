@@ -27,12 +27,10 @@ public class EmployeeFormController {
         String position = positionField.getText();
 
         // Crea un nuevo objeto Employee (debes adaptar este código según tu implementación de Employee)
-        Employee newEmployee = new Employee(0, name, lastName, email, phone, address, birthDate, hireDate, salary, position);
 
         // Aquí podrías guardar el empleado en una base de datos o hacer alguna otra acción
 
         // Mostrar mensaje de éxito o limpiar el formulario
-        System.out.println("Empleado guardado: " + newEmployee);
     }
 
     // Método para cancelar el formulario

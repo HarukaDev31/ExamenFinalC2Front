@@ -23,7 +23,7 @@
             <TextField fx:id="searchField" promptText="Buscar Variable"/>
             <Button text="Buscar" />
         </HBox>
-        <TableView fx:id="workHoursTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
+        <TableView fx:id="variablesTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
             <columns>
                 <TableColumn text="Empleado" fx:id="employeeColumn"/>
                 <TableColumn text="Horas Trabajadas" fx:id="workHoursColumn"/>

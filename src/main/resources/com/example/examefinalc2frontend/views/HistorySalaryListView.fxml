@@ -20,12 +20,13 @@
         <!-- Tabla de empleados -->
         <TableView fx:id="variablesTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
             <columns>
-                <TableColumn text="Nombre"/>
-                <TableColumn text="Valor"/>
-                <TableColumn text="Estado"/>
-                <TableColumn text="Fecha de Creacion"/>
-                <TableColumn text="Fecha de Modificacion"/>
-                <TableColumn text="Acciones"/>
+                <TableColumn text="Empleado" fx:id="employeeColumn"/>
+                <TableColumn text="Cargo" fx:id="positionColumn"/>
+                <TableColumn text="Area" fx:id="areaColumn"/>
+                <TableColumn text="Salario" fx:id="amountColumn"/>
+                <TableColumn text="Fecha de Inicio" fx:id="startDateColumn"/>
+                <TableColumn text="Fecha de Fin" fx:id="endDateColumn"/>
+
             </columns>
 
 

@@ -21,16 +21,19 @@
             <!-- Tabla de empleados -->
             <TableView fx:id="employeeTable" VBox.vgrow="ALWAYS" prefHeight="400" style="-fx-background-color: #f4f4f4; -fx-border-color: #0078d4;">
                 <columns>
-                    <TableColumn text="ID" fx:id="idColumn"/>
-                    <TableColumn text="Nombre" fx:id="nameColumn"/>
-                    <TableColumn text="Apellido" fx:id="lastNameColumn"/>
-                    <TableColumn text="Correo" fx:id="emailColumn"/>
-                    <TableColumn text="Teléfono" fx:id="phoneColumn"/>
-                    <TableColumn text="Dirección" fx:id="addressColumn"/>
-                    <TableColumn text="Fecha de Nacimiento" fx:id="birthDateColumn"/>
-                    <TableColumn text="Fecha de Ingreso" fx:id="hireDateColumn"/>
-                    <TableColumn text="Salario" fx:id="salaryColumn"/>
-                    <TableColumn text="Cargo" fx:id="positionColumn"/>
+                    <TableColumn fx:id="idColumn" text="ID" />
+                    <TableColumn fx:id="firstNameColumn" text="First Name" />
+                    <TableColumn fx:id="lastNameColumn" text="Last Name" />
+                    <TableColumn fx:id="activeColumn" text="Active" />
+                    <TableColumn fx:id="genderColumn" text="Gender" />
+                    <TableColumn fx:id="hireDateColumn" text="Hire Date" />
+                    <TableColumn fx:id="terminationDateColumn" text="Termination Date" />
+                    <TableColumn fx:id="phoneNumberColumn" text="Phone Number" />
+                    <TableColumn fx:id="addressColumn" text="Address" />
+                    <TableColumn fx:id="documentNumberColumn" text="Document Number" />
+                    <TableColumn fx:id="documentTypeIdColumn" text="Document Type"/>
+                    <TableColumn fx:id="createdAtColumn" text="Created At" />
+
                 </columns>
 
             </TableView>
